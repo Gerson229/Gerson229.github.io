@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+<!-- Bootstrap Icons  -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body style="background-color: rgb(99, 54, 0);">
+   <!-- [ navigation menu ] start -->
+	<nav class="pcoded-navbar menu-light" >
+		<div class="navbar-wrapper  " >
+			<div class="navbar-content scroll-div "  >
+				
+				<div class="">
+					<div class="main-menu-header">
+						<img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="User-Profile-Image">
+						<div class="user-details">
+							<div id="more-details">Nombre Admin<i class="fa fa-caret-down"></i></div>
+						</div>
+					</div>
+					<div class="collapse" id="nav-user-link">
+						<ul class="list-unstyled">
+							<li class="list-group-item"><a href="user-profile.html"><i class="feather icon-user m-r-5"></i>Ver Perfil</a></li>
+							<li class="list-group-item"><a href="auth-normal-sign-in.html" class="btn-abrir-modal"><i class="feather icon-log-out m-r-5"></i>Cerrar Sesion</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<ul class="nav pcoded-inner-navbar ">
+					<li class="nav-item pcoded-menu-caption">
+					    <label>Navegacion</label>
+					</li>
+					<li class="nav-item">
+					    <a href="dashboard.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Inicio</span></a>
+					</li>
+					
+					<li class="nav-item pcoded-menu-caption">
+					    <label>Productos</label>
+					</li>
+					<li class="nav-item pcoded-hasmenu">
+					    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-edit  "></i></span><span class="pcoded-mtext">Acción</span></a>
+					    <ul class="pcoded-submenu" >
+					        <li><a href="bc_alert.html">Ver Producto</a></li>
+					        <li><a href="bc_button.html">Agregar Producto</a></li>
+					        <li><a href="bc_badges.html">Editar Producto</a></li>
+					        <li><a href="bc_breadcrumb-pagination.html">Eliminar Producto</a></li>
+					    </ul>
+					</li>
+					<li class="nav-item pcoded-menu-caption">
+					    <label> Inventario</label>
+					</li>
+                    <li class="nav-item pcoded-hasmenu">
+					    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-edit"></i></span><span class="pcoded-mtext">Acción</span></a>
+					    <ul class="pcoded-submenu">
+					        <li><a href="bc_alert.html">Ver Inventario</a></li>
+					        <li><a onclick="openInventoryModal()">Registrar Entrada</a></li>
+					        <li><a onclick="openSaleModal()">Registrar Salida</a></li>
+					        <li><a href="bc_badges.html">Reporte Movimientos</a></li>
+					    </ul>
+					</li>
+					
+					<li class="nav-item pcoded-menu-caption">
+					    <label>Configuracion</label>
+					</li>
+                    <li class="nav-item pcoded-hasmenu">
+					    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Perfil</span></a>
+					    <ul class="pcoded-submenu">
+                            
+					        <li><a href="auth-signup.html" target="_blank">Ver Perfil</a></li>
+					        <li><a href="auth-signin.html" target="_blank">Editar Perfil</a></li>
+					    </ul>
+                        
+					</li>
+           <li style="cursor: pointer;"><a class="dropdown-item btn-abrir-modal " id="cerrarSesion"><i class="feather icon-log-out" style="padding: 8px;" ></i> Cerrar Sesión</a></li>         
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- [ navigation menu ] end -->
+
+    <!-- [ Header ] start -->
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+		
+			
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+            <a href="#!" class="b-brand">
+                <!-- ========   change your logo hear   ============ -->
+                <img src="assets/images/LOGOTIPO_BCH-removebg-preview.png" alt="" class="logo " style="width:70px; height:70px; margin-top: 20px;">
+            </a>
+            <a href="#!" class="mob-toggler">
+                <i class="feather icon-more-vertical"></i>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
+                    <div class="search-bar">
+                        <input type="text" class="form-control border-0 shadow-none" placeholder="Busque Aquí">
+                        <button type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right notification">
+                            <div class="noti-head">
+                                <h6 class="d-inline-block m-b-0">Notificaciones</h6>
+                                <div class="float-right">
+                                    <a href="#!" class="m-r-10">Marcar como leidas</a>
+                                    <a href="#!">Limpiar todo</a>
+                                </div>
+                            </div>
+                            <ul class="noti-body">
+                                <li class="n-title">
+                                    <p class="m-b-0">NEW</p>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>John Doe</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
+                                            <p>New ticket Added</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="n-title">
+                                    <p class="m-b-0">EARLIER</p>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
+                                            <p>Prchace New Theme and make payment</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
+                                            <p>currently login</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                            <p>Prchace New Theme and make payment</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="noti-footer">
+                                <a href="#!">Ver todas las notificaciones</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown drp-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="feather icon-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-notification">
+                            <div class="pro-head">
+                                <img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <span>Nombre Admin</span>
+                                <a href="auth-signin.html" class="dud-logout" title="Logout">
+                                    <i class="feather icon-log-out"></i>
+                                </a>
+                            </div>
+                            <ul class="pro-body">
+                                <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Perfil</a></li>
+                                <li><a  class="dropdown-item btn-abrir-modal" id="cerrarSesion"><i class="feather icon-lock"></i> Cerrar Sesión</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+    
+    </header>
+    <!-- [ Header ] end -->
+
+
+    <!-- [ Main Content ] start -->
+<div class="pcoded-main-container" style=" border-top-left-radius: 20px;">
+    <div class="pcoded-content " >
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header" >
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Inventario</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="dashboard.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item "><a href="#!">Inventario</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+         
+
+        <section style="background-color: #fff3ce82; border-radius: 20px;">
+            <div class="row col-lg-12 ">
+                <!-- Botones -->
+                <div class="col-md-6 mb-3">
+                    <button class="custom-button button-one" onclick="openInventoryModal()">Registrar Nueva <b>Entrada</b></button>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <button class="custom-button button-two" onclick="openSaleModal()">Registrar Nueva <b>Salida</b></button>
+                </div>
+            </div>
+            <div class="row espacio">
+                <!-- Tarjeta de Productos -->
+                <div class="col-xl-6 col-md-12 ">
+                    <div class="card table-card">
+                        <div class="card-header bg-c-yellow">
+                            <h5 class="text-white">Productos</h5>
+                            <div class="card-header-right">
+                                <div class="btn-group card-option">
+                                    <button type="button" class="btn dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="feather icon-more-horizontal"></i>
+                                    </button>
+                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> Maximizar</span><span style="display:none"><i class="feather icon-minimize"></i> Restaurar</span></a></li>
+                                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> Minimizar</span><span style="display:none"><i class="feather icon-plus"></i> Expandir</span></a></li>
+                                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> Recargar</a></li>
+                                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> Remover</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsie" style="max-height: 400px; ">
+                                <table class="table table-hover">
+                                    <thead class="sticky-header">
+                                        <tr>
+                                            <th>
+                                                <div class="chk-option">
+                                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
+                                                        <input type="checkbox" class="custom-control-input">
+                                                        <span class="custom-control-label"></span>
+                                                    </label>
+                                                </div>
+                                                Nombre
+                                            </th>
+                                            <th>Categoria</th>
+                                            <th>Stock</th>
+                                            <th class="text-right">Priorizar Suministro</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="chk-option">
+                                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
+                                                        <input type="checkbox" class="custom-control-input">
+                                                        <span class="custom-control-label"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="d-inline-block align-middle">
+                                                    <img src="assets/images/Estiba-pino-liston-122-removebg-preview.png" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                                                    <div class="d-inline-block">
+                                                        <h6>Estiba Taco X3</h6>
+                                                        <p class="text-muted m-b-0">120cm x 100cm</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Estiba</td>
+                                            <td>156</td>
+                                            <td class="text-right"><label class="badge badge-light-danger">Alta</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chk-option">
+                                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
+                                                        <input type="checkbox" class="custom-control-input">
+                                                        <span class="custom-control-label"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="d-inline-block align-middle">
+                                                    <img src="assets/images/carreteles.png" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                                                    <div class="d-inline-block">
+                                                        <h6>Carrete</h6>
+                                                        <p class="text-muted m-b-0">Bajo Especificación</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Carrete</td>
+                                            <td>310</td>
+                                            <td class="text-right"><label class="badge badge-light-success">Baja</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chk-option">
+                                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
+                                                        <input type="checkbox" class="custom-control-input">
+                                                        <span class="custom-control-label"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="d-inline-block align-middle">
+                                                    <img src="assets/images/c5396788d91389ac6f230c412eccb96f-removebg-preview.png" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                                                    <div class="d-inline-block">
+                                                        <h6>Guacal </h6>
+                                                        <p class="text-muted m-b-0">Bajo Especificación</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Guacal</td>
+                                            <td>100</td>
+                                            <td class="text-right"><label class="badge badge-light-primary">Normal</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chk-option">
+                                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
+                                                        <input type="checkbox" class="custom-control-input">
+                                                        <span class="custom-control-label"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="d-inline-block align-middle">
+                                                    <img src="assets/images/Madera-de-estiba.png" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                                                    <div class="d-inline-block">
+                                                        <h6>Estiba Taco X4</h6>
+                                                        <p class="text-muted m-b-0">120cm x 180cm</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Estiba</td>
+                                            <td>202</td>
+                                            <td class="text-right"><label class="badge badge-light-primary">Baja</label></td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                              <div class="chk-option">
+                                                  <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
+                                                      <input type="checkbox" class="custom-control-input">
+                                                      <span class="custom-control-label"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="d-inline-block align-middle">
+                                                  <img src="assets/images/Estiba-pino-liston-122-removebg-preview.png" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                                                  <div class="d-inline-block">
+                                                      <h6>Estiba Taco X3</h6>
+                                                      <p class="text-muted m-b-0">120cm x 100cm</p>
+                                                  </div>
+                                              </div>
+                                          </td>
+                                          <td>Estiba</td>
+                                          <td>156</td>
+                                          <td class="text-right"><label class="badge badge-light-danger">Alta</label></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div class="chk-option">
+                                                  <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
+                                                      <input type="checkbox" class="custom-control-input">
+                                                      <span class="custom-control-label"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="d-inline-block align-middle">
+                                                  <img src="assets/images/carreteles.png" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                                                  <div class="d-inline-block">
+                                                      <h6>Carrete</h6>
+                                                      <p class="text-muted m-b-0">Bajo Especificación</p>
+                                                  </div>
+                                              </div>
+                                          </td>
+                                          <td>Carrete</td>
+                                          <td>310</td>
+                                          <td class="text-right"><label class="badge badge-light-success">Baja</label></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div class="chk-option">
+                                                  <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
+                                                      <input type="checkbox" class="custom-control-input">
+                                                      <span class="custom-control-label"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="d-inline-block align-middle">
+                                                  <img src="assets/images/c5396788d91389ac6f230c412eccb96f-removebg-preview.png" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                                                  <div class="d-inline-block">
+                                                      <h6>Guacal </h6>
+                                                      <p class="text-muted m-b-0">Bajo Especificación</p>
+                                                  </div>
+                                              </div>
+                                          </td>
+                                          <td>Guacal</td>
+                                          <td>100</td>
+                                          <td class="text-right"><label class="badge badge-light-primary">Normal</label></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div class="chk-option">
+                                                  <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
+                                                      <input type="checkbox" class="custom-control-input">
+                                                      <span class="custom-control-label"></span>
+                                                  </label>
+                                              </div>
+                                              <div class="d-inline-block align-middle">
+                                                  <img src="assets/images/Madera-de-estiba.png" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                                                  <div class="d-inline-block">
+                                                      <h6>Estiba Taco X4</h6>
+                                                      <p class="text-muted m-b-0">120cm x 180cm</p>
+                                                  </div>
+                                              </div>
+                                          </td>
+                                          <td>Estiba</td>
+                                          <td>202</td>
+                                          <td class="text-right"><label class="badge badge-light-primary">Baja</label></td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Tarjeta de Movimientos -->
+                <div class="col-md-6 mb-3">
+                    <div class="card table-card">
+                        <div class="card-header bg-c-yellow">
+                            <h5 class="text-white">Movimientos</h5>
+                            <div class="card-header-right">
+                                <div class="btn-group card-option">
+                                    <button type="button" class="btn dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="feather icon-more-horizontal"></i>
+                                    </button>
+                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> Maximizar</span><span style="display:none"><i class="feather icon-minimize"></i> Restaurar</span></a></li>
+                                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> Minimizar</span><span style="display:none"><i class="feather icon-plus"></i> Expandir</span></a></li>
+                                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> Recargar</a></li>
+                                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> Remover</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="">
+                                <table class="table align-middle mb-0">
+                                    <thead class="sticky-header">
+                                        <tr>
+                                            <th>Id Movimiento</th>
+                                            <th>Producto</th>
+                                            <th>Cantidad</th>
+                                            <th>Valor</th>
+                                            <th>Total</th>
+                                            <th>Tipo de Movimiento</th>
+                                            <th>Fecha</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                <tr>
+                                  <td>
+                                    <div class="d-flex align-items-center">
+                                      <img
+                                          src="assets/images/estiba-removebg-preview.png"
+                                          alt=""
+                                          style="width: 45px; height: 45px"
+                                          class="rounded-circle"
+                                          />
+                                      <div class="ms-3">
+                                        <p class="fw-bold mb-1">Estiba Taco X3</p>
+                                        <p class="text-muted mb-0">100cm x 120cm</p>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="fw-normal mb-1">Estiba</p>
+                                    <p class="text-muted mb-0">Tipo Pesado</p>
+                                  </td>
+                                  <td>100</td>
+                                  <td>$ 7500</td>
+                                  <td>$ 750000</td>
+                                  <td>
+                                      <span class="badge badge-light-danger rounded-pill d-inline"
+                                            >SALIDA</span
+                                        >
+                                    </td>
+                                    <td>
+                                      05/11/2024
+                                    </td>
+                                  
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="d-flex align-items-center">
+                                      <img
+                                          src="assets/images/estiba-removebg-preview.png"
+                                          class="rounded-circle"
+                                          alt=""
+                                          style="width: 45px; height: 45px"
+                                          />
+                                          <div class="ms-3">
+                                              <p class="fw-bold mb-1">Estiba Taco X3</p>
+                                              <p class="text-muted mb-0">100cm x 120cm</p>
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <p class="fw-normal mb-1">Estiba</p>
+                                          <p class="text-muted mb-0">Tipo Pesado</p>
+                                        </td>
+                                        <td>50</td>
+                                        <td>$ 5000</td>
+                                        <td>$ 250000</td>
+                                        <td>
+                                            <span class="badge badge-light-success rounded-pill d-inline"
+                                                  >ENTRADA</span
+                                              >
+                                          </td>
+                                          <td>
+                                            05/11/2024
+                                          </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="d-flex align-items-center">
+                                      <img
+                                          src="assets/images/Madera-de-estiba.png"
+                                          class="rounded-circle"
+                                          alt=""
+                                          style="width: 45px; height: 45px"
+                                          />
+                                          <div class="ms-3">
+                                              <p class="fw-bold mb-1">Estiba Taco X4</p>
+                                              <p class="text-muted mb-0">180cm x 120cm</p>
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <p class="fw-normal mb-1">Estiba</p>
+                                          <p class="text-muted mb-0">Tipo Pesado</p>
+                                        </td>
+                                        <td>100</td>
+                                        <td>$ 7500</td>
+                                        <td>$ 750000</td>
+                                        <td>
+                                            <span class="badge badge-light-danger rounded-pill d-inline"
+                                                  >SALIDA</span
+                                              >
+                                          </td>
+                                          <td>
+                                            05/11/2024
+                                          </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="d-flex align-items-center">
+                                      <img
+                                          src="assets/images/carreteles.png"
+                                          class="rounded-circle"
+                                          alt=""
+                                          style="width: 45px; height: 45px"
+                                          />
+                                          <div class="ms-3">
+                                              <p class="fw-bold mb-1">Carrete</p>
+                                              <p class="text-muted mb-0">Bajo Especificación</p>
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <p class="fw-normal mb-1">Carrete</p>
+                                          <p class="text-muted mb-0">Tipo Pesado</p>
+                                        </td>
+                                        <td>75</td>
+                                        <td>$ 4500</td>
+                                        <td>$ 337.500</td>
+                                        <td>
+                                            <span class="badge badge-light-success rounded-pill d-inline"
+                                                  >ENTRADA</span
+                                              >
+                                          </td>
+                                          <td>
+                                            05/11/2024
+                                          </td>
+                                </tr>
+                                
+                              </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Modal de registro salida -->
+        <div class="sale-modal-overlay" id="saleModal">
+            <div class="sale-modal">
+              <div class="sale-modal-header">
+                Registrar Nueva Salida
+                <button class="btn-close-sale-modal" onclick="cancelSale()">×</button>
+              </div>
+              <div class="sale-modal-content">
+                <form id="saleForm" oninput="calculateTotal()">
+                  <label for="sale-producto">Producto</label>
+                  <select id="sale-producto" name="sale-producto" required>
+                    <option value="" disabled selected>Seleccione un producto</option>
+                    <option value="producto1">Producto 1</option>
+                    <option value="producto2">Producto 2</option>
+                    <option value="producto3">Producto 3</option>
+                  </select>
+        
+                  <label for="sale-cantidad">Cantidad</label>
+                  <input type="number" id="sale-cantidad" name="sale-cantidad" step="1" required>
+        
+                  <label for="sale-precioventa">Precio de Venta</label>
+                  <input type="number" id="sale-precioventa" name="sale-precioventa" step="0.01" required>
+        
+                  <p id="sale-total">El total de la salida a registrar es: $0.00</p>
+        
+                  <br>
+                  <br>
+        
+                  <div class="sale-modal-buttons">
+                    <button type="button" class="btn-register-sale" onclick="registerSale()">Registrar Salida</button>
+                    <button type="button" class="btn-cancel-sale" onclick="cancelSale()">Regresar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+          
+        <!-- Modal de registro entrada -->
+        <div class="inventory-modal-overlay" id="inventoryModal">
+            <div class="inventory-modal">
+              <div class="inventory-modal-header">
+                Registrar Nueva Entrada
+                <button class="btn-close-modal" onclick="cancelInventoryEntry()">×</button>
+              </div>
+              <div class="inventory-modal-content">
+                <form id="inventoryForm">
+                  <label for="producto">Producto</label>
+                  <select id="producto" name="producto" required>
+                    <option value="" disabled selected>Seleccione un producto</option>
+                    <option value="producto1">Producto 1</option>
+                    <option value="producto2">Producto 2</option>
+                    <option value="producto3">Producto 3</option>
+                  </select>
+        
+                  <label for="proveedor">Proveedor</label>
+                  <select id="proveedor" name="proveedor">
+                    <option value="" selected>Ninguno</option>
+                    <option value="proveedor1">Proveedor 1</option>
+                    <option value="proveedor2">Proveedor 2</option>
+                  </select>
+        
+                  <label for="cantidad">Cantidad</label>
+                  <input type="number" id="cantidad" name="cantidad" step="0.01" required>
+        
+                  <label for="precioUnidad">Precio Unidad</label>
+                  <input type="number" id="precioUnidad" name="precioUnidad" step="0.01" required>
+        
+                  <div class="inventory-modal-buttons">
+                    <button type="button" class="btn-register-entry" onclick="registerInventoryEntry()">Registrar Ingreso</button>
+                    <button type="button" class="btn-cancel-entry" onclick="cancelInventoryEntry()">Regresar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+
+    <div>
+</div>
+<!-- [ Main Content ] End -->
+
+<!-- Bootstrap core JavaScript -->
+ <script src="vendor/jquery/jquery.min.js"></script>
+ <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+ <script src="assets/js/isotope.min.js"></script>
+ <script src="assets/js/owl-carousel.js"></script>
+ <script src="assets/js/custom.js"></script>
+
+<!-- Required Js -->
+<script src="assets/js/vendor-all.min.js"></script>
+<script src="assets/js/plugins/bootstrap.min.js"></script>
+<script src="assets/js/ripple.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+
+<!--  ventana Confirmacion -->
+<script>
+    function confirmarAccion() {
+        const confirmar = confirm("¿Está seguro de que desea continuar?");
+        
+        
+        if (confirmar) {
+            // Aquí puedes manejar la lógica en caso de que el usuario confirme
+            alert("Operacion Completada.");
+            // Por ejemplo, redireccionar o enviar datos
+            // window.location.href = "https://www.ejemplo.com";
+        } else {
+            // Aquí manejas la lógica si el usuario cancela
+            alert("Operacion Cancelada.");
+        }
+    }
+</script>
+
+<!--Modal Registrar Entrada-->
+<script>
+    const inventoryModalOverlay = document.querySelector('#inventoryModal');
+    const inventoryForm = document.querySelector('#inventoryForm');
+  
+    // Abrir modal
+    function openInventoryModal() {
+      inventoryModalOverlay.style.display = 'flex';
+    }
+  
+    // Cerrar modal
+    function closeInventoryModal() {
+      inventoryModalOverlay.style.display = 'none';
+      inventoryForm.reset();
+    }
+  
+    // Confirmar registro
+    function registerInventoryEntry() {
+      if (inventoryForm.checkValidity()) {
+        if (confirm('¿Está seguro de que desea registrar este ingreso?')) {
+          alert('El ingreso se ha registrado exitosamente.');
+          closeInventoryModal();
+        }
+      } else {
+        alert('Por favor, complete todos los campos obligatorios.');
+      }
+    }
+  
+    // Confirmar cancelación
+    function cancelInventoryEntry() {
+      if (confirm('¿Está seguro de que desea cancelar el registro? Se perderá todo el progreso.')) {
+        closeInventoryModal();
+      }
+    }
+</script>
+
+<!-- modal registro salida -->
+<script>
+    const saleModalOverlay = document.querySelector('#saleModal');
+    const saleForm = document.querySelector('#saleForm');
+    const saleTotal = document.querySelector('#sale-total');
+  
+    // Abrir modal
+    function openSaleModal() {
+      saleModalOverlay.style.display = 'flex';
+    }
+  
+    // Cerrar modal
+    function closeSaleModal() {
+      saleModalOverlay.style.display = 'none';
+      saleForm.reset();
+      saleTotal.textContent = 'El total de la salida a registrar es: $0.00';
+    }
+  
+    // Calcular total
+    function calculateTotal() {
+      const cantidad = parseFloat(document.querySelector('#sale-cantidad').value) || 0;
+      const precioVenta = parseFloat(document.querySelector('#sale-precioventa').value) || 0;
+      const total = cantidad * precioVenta;
+      saleTotal.textContent = `El total de la salida a registrar es: $${total.toFixed(2)}`;
+    }
+  
+    // Confirmar registro
+    function registerSale() {
+      if (saleForm.checkValidity()) {
+        if (confirm('¿Está seguro de que desea registrar esta salida?')) {
+          alert('La salida se ha registrado exitosamente.');
+          closeSaleModal();
+        }
+      } else {
+        alert('Por favor, complete todos los campos obligatorios.');
+      }
+    }
+  
+    // Confirmar cancelación
+    function cancelSale() {
+      if (confirm('¿Está seguro de que desea cancelar el registro? Se perderá todo el progreso.')) {
+        closeSaleModal();
+      }
+    }
+  </script>
+
+
+</body>
+</html>
