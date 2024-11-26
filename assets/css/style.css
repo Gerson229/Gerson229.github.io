@@ -25737,8 +25737,12 @@ Single Page Style
 .bg-color{
   background-color: #422000;
   margin:0px;
-  padding-left: 200px;
-  position: flex;
+  position: absolute;
+  z-index: 9999999;
+  width: 80%;
+  right: 0;
+  inset-inline-end: 0;
+
 }
 
 /* Modal de registro cliente */
