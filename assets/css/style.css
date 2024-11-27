@@ -25115,6 +25115,12 @@ Single Page Style
     color: #ddebf0;
     
   }
+
+  
+  @media (max-width: 768px) {
+    .buttonnn {
+      width: 13em;
+    }
   
   #clip {
     --color: #295aec;
@@ -25748,7 +25754,7 @@ Single Page Style
 }
 @media (max-width: 768px) {
     .bg-color {
-      width: 95%;  /* Cambia el ancho a 100% en pantallas más pequeñas */
+      width: 95%;  /* Cambia el ancho a 95% en pantallas más pequeñas */
     }
   }
 
