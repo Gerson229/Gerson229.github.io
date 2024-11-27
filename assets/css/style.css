@@ -25104,7 +25104,7 @@ Single Page Style
   /*Boton proveedor*/
   .buttonnn {
     position: relative;
-    width: 20em;
+    width: 13em;
     height: 4em;
     outline: none;
     transition: 0.1s;
@@ -25116,11 +25116,6 @@ Single Page Style
     
   }
 
-  
-  @media (max-width: 768px) {
-    .buttonnn {
-      width: 13em;
-    }
   
   #clip {
     --color: #295aec;
