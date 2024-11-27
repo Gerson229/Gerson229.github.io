@@ -735,6 +735,17 @@
                                                 <span>Precio Ofertado (Precio de Venta):</span> 
                                                 <input type="number" id="productSalePrice" class="product-edit-input" value="7500" placeholder="Ingresar precio de venta">
                                               </li>
+
+                                              <li>
+                                                <span>Categoria:</span> 
+                                                <select id="productcategoria" class="product-edit-input">
+                                                  <option value="" disabled selected>Seleccione una opción</option>
+                                                  <option value="Taco de madera" >Guacal  </option>
+                                                  <option value="Taco de aglomerado">Estiba nueva</option>
+                                                  <option value="Listón liso">Estiba Remanofacturada</option>
+                                                  <option value="Listón perforado">Diseño personalizado</option>
+                                                </select>
+                                              </li>
                                               
                                               <li>
                                                 <span>Referencia:</span> 
@@ -753,7 +764,7 @@
                                               </li>
                                               
                                               <li>
-                                                <span>Tipo:</span> 
+                                                <span>Tipo de Carga:</span> 
                                                 <select id="productTypeInput" class="product-edit-input">
                                                   <option value="" disabled selected>Seleccione una opción</option>
                                                   <option value="Pesado">Pesado</option>
@@ -778,6 +789,21 @@
                                               <li>
                                                 <span>Uso:</span> 
                                                 <input type="text" id="productUsage" class="product-edit-input" value="Ideal para industria, almacenes y transporte de productos pesados" placeholder="Ingresar uso">
+                                              </li>
+
+                                              <li>
+                                                <span>Stock Minimo::</span> 
+                                                <input type="text" id="productMinimo" class="product-edit-input" value="50" placeholder="Ingrese un valor para mantener un Stock Minimo de este producto">
+                                              </li>
+
+                                              <li>
+                                                <span>Stock Maximo:</span> 
+                                                <input type="text" id="productMaximo" class="product-edit-input" value="500" placeholder="Ingrese un valor para mantener un Stock maximo de este producto">
+                                              </li>
+
+                                              <li>
+                                                <span>Observacion:</span> 
+                                                <input type="text" id="productObservacion" class="product-edit-input" value=".." placeholder="Ingresar observacion">
                                               </li>
                                             </ul>
                                             
@@ -1013,8 +1039,8 @@
 
                               <!-- Material -->
                               <div class="col-md-6 mb-3">
-                                <label for="Referencia" class="form-label">Material</label>
-                                <select id="Referencia" class="form-select" required>
+                                <label for="Material" class="form-label">Material</label>
+                                <select id="Material" class="form-select" required>
                                   <option value="" selected disabled>Seleccione una opcion </option>
                                     <option value="Taco Madera">Nuevo</option>
                                     <option value="Taco Aglomerado">Remanofacturado</option>
@@ -1022,19 +1048,25 @@
                             </div>
                             <!-- Stockmin -->
                             <div class="col-md-6 mb-3">
-                              <label for="precio" class="form-label"> Stock Minimo</label>
+                              <label for="Stockmin" class="form-label"> Stock Minimo</label>
                               <input type="number" id="Stockmin" class="form-control" step="0.01" placeholder="Ej: 20" required>
                           </div>
-                          <!-- Precio ofertado -->
+                          <!-- stockmax -->
                           <div class="col-md-6 mb-3">
-                            <label for="precio" class="form-label">Stock Maximo</label>
+                            <label for="Stockmax" class="form-label">Stock Maximo</label>
                             <input type="number" id="Stockmax" class="form-control" step="0.01" placeholder="Ej: 800" required>
                         </div>
-                        <!-- Precio ofertado -->
+                        <!-- uso -->
                         <div class="col-md-12 mb-3">
-                          <label for="precio" class="form-label">Uso</label>
+                          <label for="Uso" class="form-label">Uso</label>
                           <input type="number" id="Uso" class="form-control" step="0.01" placeholder="Ej: uso para transporte de..." required>
                       </div>
+
+                      <!-- Observacion -->
+                      <div class="col-md-12 mb-3">
+                        <label for="Observacion" class="form-label">Observacion</label>
+                        <input type="number" id="Observacion" class="form-control" step="0.01" placeholder="Ej:..." required>
+                    </div>
                             </div>
                         </div>
                         <div class="modal-footer">
